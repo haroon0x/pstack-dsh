@@ -1,0 +1,11 @@
+pstack is Copyright (c) 2026 Lauren Tan and released under the MIT License.
+Upstream: https://github.com/cursor/plugins/tree/main/pstack
+
+This repository does not include pstack's skills. The installer fetches them
+from upstream at install time and copies the upstream LICENSE into the
+installed adapter directory. The port code in this repository, meaning
+install.py, the DSH adapter, and the documentation, is MIT licensed as
+described in LICENSE.
+
+The DSH adapter follows the structure of upstream's Claude Code harness adapter
+at pstack/docs/harness/claude-code.md.
