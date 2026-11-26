@@ -75,6 +75,12 @@ python3 "$HOME/.dsh/vendor/pstack-dsh/install.py" uninstall
 
 Uninstall removes only the files listed in `manifest.json`. It restores any `$DSH_HOME/README.md` and `$DSH_HOME/docs` that the installer moved aside, and leaves the upstream checkout and this port in place.
 
+## Troubleshooting
+
+- `bootstrap.sh` stops because the target path exists and is not a git checkout. Move the old copy aside and run the command again. Earlier local ports used the same path.
+- `check` prints `DSH SECTION MISSING`. Upstream changed a file that the patch anchors on. The weekly CI run reports the same failure. Open an issue with the pstack version that `check` prints.
+- The `skill` tool refuses a pstack skill. That is expected. The skills are user-invocable on purpose. Type `/name` instead.
+
 ## What the install writes
 
 | Path | Contents |

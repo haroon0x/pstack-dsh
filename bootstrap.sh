@@ -17,6 +17,11 @@ if [[ -d "$TARGET/.git" ]]; then
   echo "updating $TARGET"
   git -C "$TARGET" pull --ff-only
 else
+  if [[ -e "$TARGET" && -n "$(ls -A "$TARGET" 2>/dev/null)" ]]; then
+    echo "error: $TARGET exists and is not a git checkout." >&2
+    echo "Move it aside or set PSTACK_DSH_DIR to another path, then run this script again." >&2
+    exit 1
+  fi
   echo "cloning $REPO_URL to $TARGET"
   mkdir -p "$(dirname "$TARGET")"
   git clone --depth 1 "$REPO_URL" "$TARGET"
